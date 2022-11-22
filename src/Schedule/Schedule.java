@@ -44,6 +44,6 @@ public class Schedule {
         for (Map.Entry entry : taskMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
-        return "/n";
+        return " " ;
     }
 }

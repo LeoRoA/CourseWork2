@@ -23,46 +23,46 @@ public class Main {
                     int menu = scanner.nextInt();
                     switch (menu) {
                         case 1:
-                            Task task1 = new SingleTask("first",
-                                    "sfdghdsf",
-                                    false,
-                                    LocalDateTime.of(2022, 11, 18, 15, 15));
-                            Task task2 = new DailyTask("second",
-                                    "dsfhgdhyfj fgj",
-                                    true,
-                                    LocalDateTime.of(2022, 11, 18, 16, 15));
-                            Task task3 = new WeeklyTask("third",
-                                    "khjkl sa",
-                                    false,
-                                    LocalDateTime.of(2022, 11, 18, 17, 15));
-                            Task task4 = new WeeklyTask("forth",
-                                    "vcnn trey",
-                                    true,
-                                    LocalDateTime.of(2022, 11, 18, 18, 15));
-                            Task task5 = new MonthlyTask("fifth",
-                                    "qasfdh zxc",
-                                    false,
-                                    LocalDateTime.of(2022, 11, 18, 19, 15));
-                            Task task6 = new YearlyTask("sixth",
-                                    "popjb hse",
-                                    true,
-                                    LocalDateTime.of(2022, 11, 18, 20, 15));
-                            System.out.println((task6.getTaskDateTime().toLocalDate().equals(LocalDate.of(2022, 11, 18)) ||
-                                    task6.getTaskDateTime().toLocalDate().isBefore(LocalDate.of(2022, 11, 18))) &&
-                                    (task6.getTaskDateTime().getDayOfYear() == LocalDate.of(2022, 11, 18).getDayOfYear()));
-                            schedule.addTask(task1);
-                            schedule.addTask(task2);
-                            schedule.addTask(task3);
-                            schedule.addTask(task4);
-                            schedule.addTask(task5);
-                            schedule.addTask(task6);
-//                            inputTask(scanner, schedule);
+//                            Task task1 = new SingleTask("first",
+//                                    "sfdghdsf",
+//                                    false,
+//                                    LocalDateTime.of(2022, 11, 29, 15, 15));
+//                            Task task2 = new DailyTask("second",
+//                                    "dsfhgdhyfj fgj",
+//                                    true,
+//                                    LocalDateTime.of(2022, 11, 29, 16, 15));
+//                            Task task3 = new WeeklyTask("third",
+//                                    "khjkl sa",
+//                                    false,
+//                                    LocalDateTime.of(2022, 11, 29, 17, 15));
+//                            Task task4 = new WeeklyTask("forth",
+//                                    "vcnn trey",
+//                                    true,
+//                                    LocalDateTime.of(2022, 11, 29, 18, 15));
+//                            Task task5 = new MonthlyTask("fifth",
+//                                    "qasfdh zxc",
+//                                    false,
+//                                    LocalDateTime.of(2022, 11, 29, 19, 15));
+//                            Task task6 = new YearlyTask("sixth",
+//                                    "popjb hse",
+//                                    true,
+//                                    LocalDateTime.of(2022, 11, 18, 20, 15));
+//                            System.out.println((task6.getTaskDateTime().toLocalDate().equals(LocalDate.of(2022, 11, 18)) ||
+//                                    task6.getTaskDateTime().toLocalDate().isBefore(LocalDate.of(2022, 11, 18))) &&
+//                                    (task6.getTaskDateTime().getDayOfYear() == LocalDate.of(2022, 11, 18).getDayOfYear()));
+//                            schedule.addTask(task1);
+//                            schedule.addTask(task2);
+//                            schedule.addTask(task3);
+//                            schedule.addTask(task4);
+//                            schedule.addTask(task5);
+//                            schedule.addTask(task6);
+                            inputTask(scanner, schedule);
 
                             System.out.println("Добавлено задач: " + schedule.getSize());
                             break;
                         case 2:
                             System.out.print("Введите ID задачи для удаления: ");
-                            removeTask(schedule);
+                            removeTask(schedule,scanner);
                             break;
                         case 3:
                             System.out.print("Введите дату: ");
@@ -264,11 +264,11 @@ public class Main {
         return inputDate;
     }
 
-    public static void removeTask(Schedule schedule) {
-        try (Scanner scanner = new Scanner(System.in)) {
+    public static void removeTask(Schedule schedule, Scanner scanner) {
+        try  {
             while (true) {
                 System.out.println("Введите ID:");
-//                String value = scanner.next();
+
 //                System.out.println("спс");
                 if (scanner.hasNextInt()) {
                     int id = scanner.nextInt();
@@ -280,7 +280,7 @@ public class Main {
                     }
                 } else {
                     System.out.println("Введите id: ");
-//                    scanner.nextInt();
+                    scanner.next();
                 }
 //                scanner.nextInt();
             }
